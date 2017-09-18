@@ -49,24 +49,54 @@ util.inherits(TsdbClient, BceBaseClient);
 
 // --- B E G I N ---
 
-TsdbClient.prototype.getMetrics = function (database, options) {
+TsdbClient.prototype.getMetrics = function(database, options) {
     var options = options || {};
     var params = {
         database: database,
-        query:''
+        query: ''
     };
-    
-    return this.sendRequest('GET', '/v1/metric', {   
-      params: params,
-      config: options.config
+
+    return this.sendRequest('GET', '/v1/metric', {
+        params: params,
+        config: options.config
+    });
+};
+
+TsdbClient.prototype.getTags = function(database, metricName, options) {
+    var options = options || {};
+    var url = '/v1/metric/' + metricName + '/tag';
+    var params = {
+        database: database,
+        metricName: metricName,
+        query: ''
+    };
+
+    return this.sendRequest('GET', url, {
+        params: params,
+        config: options.config
+    });
+};
+
+TsdbClient.prototype.getFields = function(database, metricName, options) {
+    var options = options || {};
+    var url = '/v1/metric/' + metricName + '/field';
+    var params = {
+        database: database,
+        metricName: metricName,
+        query: ''
+    };
+
+    return this.sendRequest('GET', url, {
+        params: params,
+        config: options.config
     });
 };
 
 // --- E N D ---
 
-TsdbClient.prototype.sendRequest = function (httpMethod, resource, varArgs) {
+TsdbClient.prototype.sendRequest = function(httpMethod, resource, varArgs) {
     var defaultArgs = {
-        metricName:null,
+        metricName: null,
         database: null,
         key: null,
         body: null,
@@ -88,11 +118,8 @@ TsdbClient.prototype.sendRequest = function (httpMethod, resource, varArgs) {
         config: config
     };
 
-       console.log('-----httpContext------')
-       console.log(httpContext)
-       console.log('--------------')
-    u.each(['progress', 'error', 'abort'], function (eventName) {
-        agent.on(eventName, function (evt) {
+    u.each(['progress', 'error', 'abort'], function(eventName) {
+        agent.on(eventName, function(evt) {
             client.emit(eventName, evt, httpContext);
         });
     });
