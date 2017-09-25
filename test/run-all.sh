@@ -50,22 +50,28 @@ export DOC_ENDPOINT=http://doc.baidubce.com
 export DOC_AK=${ONLINE_AK}
 export DOC_SK=${ONLINE_SK}
 
+export TSDB_ENDPOINT=http://10.107.40.57:8012
+export TSDB_AK=${ONLINE_AK}
+export TSDB_SK=${ONLINE_SK}
+
 SPECS=(
-  test/sdk/upload_helper.spec.js
-  test/sdk/sts.spec.js
-  test/sdk/crypto.spec.js
-  test/sdk/auth.spec.js
-  test/sdk/multipart.spec.js
-  test/sdk/http_client.spec.js
-  test/sdk/mime.types.spec.js
-  test/sdk/bos_client.spec.js
-  test/sdk/doc_client.spec.js
-  test/sdk/lss_client.spec.js
-  test/sdk/mct_client.spec.js
-  test/sdk/ses_client.spec.js
-  test/sdk/ocr_client.spec.js
-  test/sdk/vod_client.spec.js
-  test/sdk/vod_client_media.spec.js
+  # test/sdk/upload_helper.spec.js
+  # test/sdk/sts.spec.js
+  # test/sdk/crypto.spec.js
+  # test/sdk/auth.spec.js
+  # test/sdk/multipart.spec.js
+  # test/sdk/http_client.spec.js
+  # test/sdk/mime.types.spec.js
+  # test/sdk/bos_client.spec.js
+  # test/sdk/doc_client.spec.js
+  # test/sdk/lss_client.spec.js
+  # test/sdk/mct_client.spec.js
+  # test/sdk/ses_client.spec.js
+  # test/sdk/ocr_client.spec.js
+  # test/sdk/vod_client.spec.js
+  # test/sdk/vod_client_media.spec.js
+  test/sdk/tsdb_client.spec.js
+
 )
 
 # SPECS=(
