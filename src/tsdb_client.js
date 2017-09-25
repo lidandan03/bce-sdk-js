@@ -11,7 +11,11 @@
  * specific language governing permissions and limitations under the License.
  *
  * @file src/face_client.js
+<<<<<<< HEAD
  * @author lidandan
+=======
+ * @author dan
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
  */
 
 /* eslint-env node */
@@ -19,14 +23,28 @@
 
 var util = require('util');
 var u = require('underscore');
+<<<<<<< HEAD
 var H = require('./headers');
 
 var HttpClient = require('./http_client');
+=======
+var url = require('url');
+var path = require('path');
+
+var strings = require('./strings');
+var HttpClient = require('./http_client');
+var config = require('./config');
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
 var BceBaseClient = require('./bce_base_client');
 
 /**
  *TSDB service api
  *
+<<<<<<< HEAD
+=======
+ * @see http://***
+ *
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
  * @constructor
  * @param {Object} config The tsdb client configuration.
  * @extends {BceBaseClient}
@@ -44,6 +62,7 @@ util.inherits(TsdbClient, BceBaseClient);
 
 // --- B E G I N ---
 
+<<<<<<< HEAD
 TsdbClient.prototype.writeDatapoints = function (database, datapoints, options) {
     options = options || {};
     var params = {
@@ -59,18 +78,29 @@ TsdbClient.prototype.writeDatapoints = function (database, datapoints, options) 
 };
 
 TsdbClient.prototype.getMetrics = function (database, options) {
+=======
+TsdbClient.prototype.getMetrics = function(database, options) {
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
     var options = options || {};
     var params = {
         database: database,
         query: ''
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
     return this.sendRequest('GET', '/v1/metric', {
         params: params,
         config: options.config
     });
 };
 
+<<<<<<< HEAD
 TsdbClient.prototype.getTags = function (database, metricName, options) {
+=======
+TsdbClient.prototype.getTags = function(database, metricName, options) {
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
     var options = options || {};
     var url = '/v1/metric/' + metricName + '/tag';
     var params = {
@@ -85,7 +115,11 @@ TsdbClient.prototype.getTags = function (database, metricName, options) {
     });
 };
 
+<<<<<<< HEAD
 TsdbClient.prototype.getFields = function (database, metricName, options) {
+=======
+TsdbClient.prototype.getFields = function(database, metricName, options) {
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
     var options = options || {};
     var url = '/v1/metric/' + metricName + '/field';
     var params = {
@@ -93,6 +127,7 @@ TsdbClient.prototype.getFields = function (database, metricName, options) {
         metricName: metricName,
         query: ''
     };
+<<<<<<< HEAD
     return this.sendRequest('GET', url, {
         params: params,
         config: options.config
@@ -134,6 +169,10 @@ TsdbClient.prototype.getDatapoints = function (database, queryList, options) {
     headers[H.CONTENT_TYPE] = 'application/json; charset=UTF-8';
     return this.sendRequest('GET', url, {
         headers: headers,
+=======
+
+    return this.sendRequest('GET', url, {
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
         params: params,
         config: options.config
     });
@@ -141,7 +180,11 @@ TsdbClient.prototype.getDatapoints = function (database, queryList, options) {
 
 // --- E N D ---
 
+<<<<<<< HEAD
 TsdbClient.prototype.sendRequest = function (httpMethod, resource, varArgs) {
+=======
+TsdbClient.prototype.sendRequest = function(httpMethod, resource, varArgs) {
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
     var defaultArgs = {
         metricName: null,
         database: null,
@@ -164,8 +207,14 @@ TsdbClient.prototype.sendRequest = function (httpMethod, resource, varArgs) {
         args: args,
         config: config
     };
+<<<<<<< HEAD
     u.each(['progress', 'error', 'abort'], function (eventName) {
         agent.on(eventName, function (evt) {
+=======
+
+    u.each(['progress', 'error', 'abort'], function(eventName) {
+        agent.on(eventName, function(evt) {
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
             client.emit(eventName, evt, httpContext);
         });
     });
@@ -175,4 +224,8 @@ TsdbClient.prototype.sendRequest = function (httpMethod, resource, varArgs) {
         args.outputStream
     );
 };
+<<<<<<< HEAD
 module.exports = TsdbClient;
+=======
+module.exports = TsdbClient;
+>>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
