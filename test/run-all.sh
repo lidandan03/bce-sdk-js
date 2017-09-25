@@ -55,23 +55,6 @@ export TSDB_AK=${ONLINE_AK}
 export TSDB_SK=${ONLINE_SK}
 
 SPECS=(
-<<<<<<< HEAD
-  # test/sdk/upload_helper.spec.js
-  # test/sdk/sts.spec.js
-  # test/sdk/crypto.spec.js
-  # test/sdk/auth.spec.js
-  # test/sdk/multipart.spec.js
-  # test/sdk/http_client.spec.js
-  # test/sdk/mime.types.spec.js
-  # test/sdk/bos_client.spec.js
-  # test/sdk/doc_client.spec.js
-  # test/sdk/lss_client.spec.js
-  # test/sdk/mct_client.spec.js
-  # test/sdk/ses_client.spec.js
-  # test/sdk/ocr_client.spec.js
-  # test/sdk/vod_client.spec.js
-  # test/sdk/vod_client_media.spec.js
-=======
   test/sdk/upload_helper.spec.js
   test/sdk/sts.spec.js
   test/sdk/crypto.spec.js
@@ -87,9 +70,7 @@ SPECS=(
   test/sdk/ocr_client.spec.js
   test/sdk/vod_client.spec.js
   test/sdk/vod_client_media.spec.js
->>>>>>> 7ea0172ce853b7057a039699e994533c243cf665
   test/sdk/tsdb_client.spec.js
-
 )
 
 # SPECS=(
